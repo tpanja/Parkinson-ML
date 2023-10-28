@@ -18,9 +18,12 @@ col1, col2 = st.columns(2)
 with col1:
      st.markdown('Webcam Input')
      picture = st.camera_input("Take a picture")
+     if picture:
+          st.write(predict(picture))
 with col2:
      st.markdown('File Upload')
      picture = st.file_uploader('Choose a File')
+     if picture is not None:
+          st.write(predict(picture))
 
-if picture is not None:
-     st.write(predict(picture))
+
